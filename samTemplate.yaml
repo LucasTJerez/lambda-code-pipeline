@@ -12,34 +12,3 @@ Resources:
       MemorySize: 128
       Timeout: 3
       Role: 'arn:aws:iam::411763187466:role/service-role/search-photos-role-j5arb6oj'
-      Events:
-        Api1:
-          Type: Api
-          Properties:
-            Path: /MyResource
-            Method: ANY
-        Api2:
-          Type: Api
-          Properties:
-            Path: /search
-            Method: OPTIONS
-        Api3:
-          Type: Api
-          Properties:
-            Path: /MyResource
-            Method: ANY
-        Api4:
-          Type: Api
-          Properties:
-            Path: /MyResource
-            Method: ANY
-        Api5:
-          Type: Api
-          Properties:
-            Path: /search
-            Method: GET
-        Api6:
-          Type: Api
-          Properties:
-            Path: /MyResource
-            Method: ANY
