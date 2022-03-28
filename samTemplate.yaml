@@ -5,6 +5,7 @@ Resources:
   searchphotos:
     Type: 'AWS::Serverless::Function'
     Properties:
+      FunctionName: search-photos
       Handler: lambda_function.lambda_handler
       Runtime: python3.9
       CodeUri: ./search-photos-cc8efa6d-c69b-42ef-b493-9a6adf243943
@@ -12,3 +13,24 @@ Resources:
       MemorySize: 128
       Timeout: 3
       Role: 'arn:aws:iam::411763187466:role/service-role/search-photos-role-j5arb6oj'
+  indexphotos:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: index-photos
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.9
+      CodeUri: ./index-photos-80c42dfc-1475-404f-bca6-8cfb8d5fc277
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::411763187466:role/service-role/s3access'
+      Events:
+        BucketEvent1:
+          Type: S3
+          Properties:
+            Bucket:
+              Ref: Bucket1
+            Events:
+              - 's3:ObjectCreated:Put'
+  Bucket1:
+    Type: 'AWS::S3::Bucket'
