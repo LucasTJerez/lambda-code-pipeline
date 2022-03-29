@@ -20,7 +20,7 @@ def lambda_handler(event, context):
     labels = []
     if 'x-amz-meta-customlabels' in response['ResponseMetadata']['HTTPHeaders']:
         labels = response['ResponseMetadata']['HTTPHeaders']['x-amz-meta-customlabels'].split(',')
-    print("change")
+    # print("change")
     
     # https://photosbucket02.s3.amazonaws.com/rename.jpg
 
